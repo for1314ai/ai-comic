@@ -184,7 +184,7 @@ describe('test/app/service/ai-image.test.js', () => {
 
     it('lists supported image protocols without grsai', () => {
       const formats = getSupportedImageProtocols();
-      assert.deepStrictEqual(formats.sort(), ['grok', 'openai']);
+      assert.deepStrictEqual(formats.sort(), ['codex', 'grok', 'openai']);
     });
   });
 

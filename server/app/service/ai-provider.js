@@ -84,13 +84,13 @@ class AiProviderService extends Service {
     if (type === 'image' && !this.imageProtocols.has(protocol)) {
       this.ctx.throw(400, `图片协议仅支持: ${[...this.imageProtocols].join(', ')}`);
     }
-    if (!baseUrl || !String(baseUrl).trim()) {
+    if (protocol !== 'codex' && (!baseUrl || !String(baseUrl).trim())) {
       this.ctx.throw(400, '请填写 API 地址');
     }
-    if (!model || !String(model).trim()) {
+    if (protocol !== 'codex' && (!model || !String(model).trim())) {
       this.ctx.throw(400, '请填写模型名称');
     }
-    if (isCreate && (!apiKey || !String(apiKey).trim())) {
+    if (protocol !== 'codex' && isCreate && (!apiKey || !String(apiKey).trim())) {
       this.ctx.throw(400, '请填写 API Key');
     }
 
@@ -105,9 +105,9 @@ class AiProviderService extends Service {
       type,
       name: String(name).trim(),
       protocol,
-      baseUrl: String(baseUrl).trim().replace(/\/+$/, ''),
-      model: String(model).trim(),
-      apiKey: apiKey !== undefined && apiKey !== null ? String(apiKey) : undefined,
+      baseUrl: protocol === 'codex' ? '' : String(baseUrl).trim().replace(/\/+$/, ''),
+      model: protocol === 'codex' ? '' : String(model).trim(),
+      apiKey: protocol === 'codex' ? '' : apiKey !== undefined && apiKey !== null ? String(apiKey) : undefined,
       enabled: isEnabled,
       isDefault: nextIsDefault,
       extra: extra && typeof extra === 'object' ? extra : {},
@@ -260,7 +260,7 @@ class AiProviderService extends Service {
     };
 
     const payload = this.validatePayload(merged, { isCreate: false });
-    const nextApiKey = payload.apiKey && payload.apiKey.trim()
+    const nextApiKey = payload.protocol === 'codex' ? '' : payload.apiKey && payload.apiKey.trim()
       ? payload.apiKey.trim()
       : existing.api_key;
 

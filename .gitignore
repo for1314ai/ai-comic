@@ -44,10 +44,12 @@ docker-compose.yml
 # Auto-generated typings
 server/typings/
 server/run/
+server/app/public/
 
 # 用户生成图片不入库；风格预设示例图为可复用静态资源，须入库
 server/public/images/characters/
 server/public/images/comics/
+server/public/images/styles/
 
 # Superpowers skill temp files
 .superpowers/

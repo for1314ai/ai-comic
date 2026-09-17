@@ -18,6 +18,10 @@
   </p>
 </div>
 
+## Codex CLI 版本
+
+此分支支持通过本机 Codex CLI 生成文字和图片，沿用 ChatGPT 登录，无需填写模型名称或 API Key。安装、启动及功能范围见 [Codex CLI 使用说明](README-CODEX.md)。
+
 ## ✨ 功能特性
 
 - **AI 内容生成**: 自动生成分镜脚本和漫画图像

@@ -28,7 +28,7 @@ describe('test/app/ai/registry.test.js', () => {
   });
 
   it('lists text protocols', () => {
-    assert.deepStrictEqual(getSupportedTextProtocols().sort(), ['anthropic', 'openai']);
+    assert.deepStrictEqual(getSupportedTextProtocols().sort(), ['anthropic', 'codex', 'openai']);
   });
 
   it('rejects unknown text protocol', () => {

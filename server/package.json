@@ -2,6 +2,8 @@
   "name": "ai-comic-server",
   "version": "1.0.0",
   "scripts": {
+    "start:codex": "node scripts/start-codex.js",
+    "setup:codex": "node scripts/setup-codex.js",
     "start": "egg-scripts start --daemon --title=ai-comic-server",
     "stop": "egg-scripts stop --title=ai-comic-server",
     "dev": "egg-bin dev",

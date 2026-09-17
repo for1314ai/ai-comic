@@ -5,15 +5,19 @@ const OpenAITextProtocol = require('./text/openai');
 const AnthropicTextProtocol = require('./text/anthropic');
 const OpenAIImageProtocol = require('./image/openai');
 const GrokImageProtocol = require('./image/grok');
+const CodexTextProtocol = require('./text/codex');
+const CodexImageProtocol = require('./image/codex');
 
 const textProtocols = {
   openai: OpenAITextProtocol,
   anthropic: AnthropicTextProtocol,
+  codex: CodexTextProtocol,
 };
 
 const imageProtocols = {
   openai: OpenAIImageProtocol,
   grok: GrokImageProtocol,
+  codex: CodexImageProtocol,
 };
 
 function createTextProtocol(protocol, config) {
